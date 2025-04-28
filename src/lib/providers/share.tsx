@@ -30,7 +30,7 @@ export default function Share({ title, subUrl }: { title: string, subUrl: string
       <FacebookShareButton
         url={shareUrl}
         quote={shareTitle}
-        hashtag={"#block-breaker"}
+        hashtag={"#random-color"}
       >
         <FacebookIcon size={32} round />
       </FacebookShareButton>
