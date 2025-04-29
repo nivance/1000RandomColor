@@ -1,4 +1,5 @@
-import RandomWords from '@/components/random-color';
+// "use client";
+import RandomColor from '@/components/random-color';
 import Hero from '@/components/hero';
 import FAQs from '@/components/faqs';
 import { Metadata } from 'next';
@@ -32,7 +33,7 @@ export default function Home() {
     <>
       <main>
         <div className="min-h-screen">
-          <RandomWords />
+          <RandomColor />
           <Hero />
           <FAQs faqInfo='faqInfo' faqs='faqs' faqKeys={['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10', 'q11', 'q12', 'q13', 'q14', 'q15', 'q16', 'q17', 'q18', 'q19', 'q20']} />
         </div>
