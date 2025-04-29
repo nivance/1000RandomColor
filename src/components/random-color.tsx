@@ -16,7 +16,7 @@ export default function RandomColor() {
         <section className="mb-12">
             <h1 className="text-2xl font-bold text-white text-center mb-4">1000 Random Color</h1>
             <div className="mx-auto w-[80%]">
-                <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-4" style={{ rowGap: '4px' }}>
+                <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-4" style={{ rowGap: '4px' }}>
                     {randomColors.map((color, index) => (
                         <div key={index} className="p-1 rounded border border-gray-300">
                             <div
