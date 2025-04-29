@@ -20,19 +20,19 @@ export default function RandomColor() {
                     {randomColors.map((color, index) => (
                         <div key={index} className="p-1 rounded border border-gray-300">
                             <div
-                                className="h-12 rounded-t"
+                                className="h-20 rounded-t"
                                 style={{ backgroundColor: color }}
                             ></div>
                             <div className="text-center mt-2">
                                 <p
-                                    className="font-mono text-xs text-gray-700 hover:text-black cursor-pointer mb-1"
+                                    className="font-mono text-base text-gray-700 hover:text-black cursor-pointer"
                                     title="Click to copy rgb code"
                                     onClick={() => navigator.clipboard.writeText(color)}
                                 >
                                     {color}
                                 </p>
                                 <p
-                                    className="font-mono text-xs text-gray-700 hover:text-black cursor-pointer"
+                                    className="font-mono text-base text-gray-700 hover:text-black cursor-pointer"
                                     title="Click to copy hex code"
                                     onClick={() => navigator.clipboard.writeText(hexToRgb(color))}
                                 >
