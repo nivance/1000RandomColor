@@ -16,14 +16,14 @@ export default function ColorCard({ randomColors }: { randomColors: string[] }) 
                             </Link>
                             <div className="text-center mt-2">
                                 <p
-                                    className="font-mono text-base text-gray-700 hover:text-black cursor-pointer"
+                                    className="font-mono text-base text-gray-500 hover:text-black cursor-pointer"
                                     title="Click to copy rgb code"
                                     onClick={() => navigator.clipboard.writeText(color)}
                                 >
                                     {color}
                                 </p>
                                 <p
-                                    className="font-mono text-base text-gray-700 hover:text-black cursor-pointer"
+                                    className="font-mono text-base text-gray-500 hover:text-black cursor-pointer"
                                     title="Click to copy hex code"
                                     onClick={() => navigator.clipboard.writeText(hexToRgb(color))}
                                 >
