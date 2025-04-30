@@ -11,6 +11,14 @@
 		"h2_what_p3": "Our easy-to-use interface ensures that every random color is clearly displayed along with its HEX and RGB codes, making it simple to copy the color information with just a click. This feature is perfect for developers and designers who need quick access to color codes for CSS, digital art, or branding purposes. Additionally, the large volume of 1000 random color options per refresh guarantees variety and uniqueness every time you visit.",
 		"h2_what_p4": "In summary, our website is your ultimate destination for discovering and utilizing random color combinations. Refresh the page, explore the 1000 random color options, and find the perfect color codes to bring your creative visions to life. Experience the endless possibilities of random color today!"
 	},
+	"howToUse": {
+		"h2_what": "How to use 1000 random color",
+		"h2_what_p1": "1. Refresh the page to generate 1,000 new random color each time.",
+		"h2_what_p2": "2. Click on any color block to view 100 random color derived from that specific color.",
+		"h2_what_p3": "3. Click on a HEX code to copy its value to your clipboard.",
+		"h2_what_p4": "4. Click on an RGB code to copy its value to your clipboard.",
+		"h2_what_p5": "5. You can also use the link format {host}/'{hex_code}' to see random color generated based on that hex color."
+	},
 	"faqInfo": {
 		"title": "Frequently Asked Questions",
 		"desc": "Here are some of the most frequently asked questions about 1000 random color. If you have a question about 1000 random color that is not answered here, please feel free to reach out to us via the contact form on this website."
