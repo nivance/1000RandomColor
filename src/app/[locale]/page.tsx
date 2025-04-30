@@ -1,4 +1,3 @@
-// "use client";
 import RandomColor from '@/components/random-color';
 import Hero from '@/components/hero';
 import FAQs from '@/components/faqs';
