@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { hexToRgb } from '@/lib/utils';
 
 export default function ColorCard({ randomColors }: { randomColors: string[] }) {
@@ -7,10 +8,12 @@ export default function ColorCard({ randomColors }: { randomColors: string[] }) 
                 <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-4" style={{ rowGap: '4px' }}>
                     {randomColors.map((color, index) => (
                         <div key={index} className="p-1 rounded border border-gray-300">
-                            <div
-                                className="h-20 rounded-t"
-                                style={{ backgroundColor: color }}
-                            ></div>
+                            <Link href={color.replace(/^#/, '')} key={index} >
+                                <div
+                                    className="h-20 rounded-t"
+                                    style={{ backgroundColor: color }}
+                                ></div>
+                            </Link>
                             <div className="text-center mt-2">
                                 <p
                                     className="font-mono text-base text-gray-700 hover:text-black cursor-pointer"
