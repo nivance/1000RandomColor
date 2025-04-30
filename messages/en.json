@@ -2,7 +2,10 @@
 	"metadata": {
 		"title": "1000 random color",
 		"description": "Generate 1000 random color",
-		"keywords": "random color, random colors, random color generator, random color gen, random color app, random color creator, random color dictionary"
+		"keywords": "random color, random colors, random color generator, random color gen, random color app, random color creator, random color dictionary",
+		"sepc_title": "#{hex_code} Hex Color - {host_name}",
+		"sepc_desc": "Generate 100 random colors based on #{hex_code} hex color",
+		"sepc_keywords": "#{hex_code}, random color, random color generator, random color gen, random color app, random color creator, random color dictionary"
 	},
 	"hero": {
 		"h2_what": "About 1000 random color",
