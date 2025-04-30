@@ -13,7 +13,7 @@ export default function Nav() {
     <nav className="w-auto border-gray-300 flex items-center justify-between p-2 px-4" aria-label="Global">
       <div className="hidden lg:flex items-center mr-4">
         <a href={`/`} className="flex items-center" title="Random Color">
-          <Image className="h-8" src="/favicon.svg" alt="Random Color logo" width={28} height={28} />
+          <Image className="h-6" src="/favicon.svg" alt="Random Color logo" width={24} height={24} />
         </a>
         <a href={`/`} className="flex flex-col items-center" title="Random Color">
           <span className="text-gray-700 font-mono font-extrabold">1000 Random Color</span>
