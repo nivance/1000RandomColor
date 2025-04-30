@@ -32,7 +32,7 @@ export default function Home() {
   return (
     <>
       <main>
-        <div className="min-h-screen">
+        <div className="mx-auto w-[80%]">
           <RandomColor />
           <Hero />
           <HowToUse />

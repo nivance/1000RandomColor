@@ -7,7 +7,7 @@ export default function HowToUse() {
   const h2_what_p5 = t('h2_what_p5', { "host": config.baseUrl });
   return (
     <section className="relative">
-      <div className="mx-auto w-[80%] py-8 px-5">
+      <div className="mx-auto py-8 px-5">
         <h2 className="font-mono text-4xl font-bold text-center mb-12">
           {t('h2_what')}
         </h2>

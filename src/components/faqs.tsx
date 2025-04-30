@@ -12,7 +12,7 @@ export default function FAQs({faqInfo, faqs, faqKeys} : {faqInfo: string, faqs: 
   const faqItem = useTranslations(faqs)
   return (
     <section className="relative py-8">
-      <div className="mx-auto max-w-[70%] px-6 lg:px-8 relative grid gap-12">
+      <div className="mx-auto px-6 lg:px-8 relative grid gap-12">
         <div className="flex flex-col gap-6 w-full">
           <h2 className="font-mono text-3xl lg:text-4xl font-bold tracking-tighter text-center">{t('title')}</h2>
           <p className="font-mono text-base tracking-tight text-gray-500">{t('desc')}</p>
