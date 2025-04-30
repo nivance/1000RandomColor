@@ -32,7 +32,7 @@ export default function Home() {
   return (
     <>
       <main>
-        <div className="mx-auto w-[80%]">
+        <div className="mx-auto w-[90%] lg:w-[80%]">
           <RandomColor />
           <Hero />
           <HowToUse />
