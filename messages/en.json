@@ -17,84 +17,84 @@
 	},
 	"faqs": {
 		"q1": {
-			"q": "What is the purpose of this random color generator website?",
-			"a": "This website generates and displays 1000 random colors each time you refresh the page, helping users find new and unique words for creative writing, vocabulary building, or fun."
+			"q": "What is a random color on this website?",
+			"a": "A random color on this website is one of the 1000 unique colors generated each time you refresh the page, providing you with fresh and diverse random color options."
 		},
 		"q2": {
-			"q": "How often does the list of random color change?",
-			"a": "The list changes every time you refresh the page, providing a new set of 1000 random colors instantly."
+			"q": "How many random colors are displayed per page refresh?",
+			"a": "Each page refresh displays 1000 random color, giving you a vast selection of random color choices instantly."
 		},
 		"q3": {
-			"q": "Can I download the list of 1000 random color?",
-			"a": "Currently, the website does not support direct downloads, but you can easily copy and paste the words for your personal use."
+			"q": "Can I copy the hex code of any random color?",
+			"a": "Yes, you can easily copy the hex code of any random color displayed on the site with a single click."
 		},
 		"q4": {
-			"q": "Are the random color filtered for appropriateness?",
-			"a": "Yes, the words are filtered to exclude offensive or inappropriate language to ensure a safe and positive experience."
+			"q": "Are the RGB codes available for each random color?",
+			"a": "Absolutely! Each random color comes with its corresponding RGB code, which you can also copy for your projects."
 		},
 		"q5": {
-			"q": "Can I use the random color for commercial projects?",
-			"a": "Yes, the random color generated are free to use for personal, educational, or commercial projects without restrictions."
+			"q": "Why use random color instead of picking colors manually?",
+			"a": "Using random color helps you discover unexpected and creative color choices that you might not think of when selecting colors manually."
 		},
 		"q6": {
-			"q": "Is there a way to customize the number of random colors displayed?",
-			"a": "Currently, the website displays 1000 random color per refresh and does not support customization of this number."
+			"q": "Is the random color generation truly random?",
+			"a": "Yes, the random color generation algorithm ensures that each set of 1000 random color is unique and unpredictable every time you refresh."
 		},
 		"q7": {
-			"q": "Are the random color sourced from a specific dictionary or database?",
-			"a": "The words are sourced from a comprehensive English dictionary database to ensure variety and relevance."
+			"q": "Can I use the random color codes for commercial projects?",
+			"a": "Yes, all random color codes generated on the website are free to use for personal and commercial projects."
 		},
 		"q8": {
-			"q": "Do the random colors include different parts of speech?",
-			"a": "Yes, the list includes a mix of nouns, verbs, adjectives, and other parts of speech for diverse usage."
+			"q": "Are the random color suitable for web design?",
+			"a": "Definitely! The random colors with hex and RGB codes are perfect for web design, allowing you to easily implement random color schemes."
 		},
 		"q9": {
-			"q": "Can I search for a specific word on the website?",
-			"a": "The website currently does not have a search function, as it focuses on providing random color lists."
+			"q": "Can I filter or customize the random color results?",
+			"a": "Currently, the website shows 1000 random color per refresh without customization or filtering options."
 		},
 		"q10": {
-			"q": "Why should I use this random color generator instead of others?",
-			"a": "Our website offers a large volume of 1000 random color per refresh, ensuring extensive variety and inspiration for users."
+			"q": "How can random color help in creative projects?",
+			"a": "Random color provides fresh inspiration by offering unexpected color combinations that can spark creativity in art, design, and branding."
 		},
 		"q11": {
-			"q": "Is the website mobile-friendly?",
-			"a": "Yes, the website is optimized for mobile devices, allowing you to generate random colors on the go."
+			"q": "Is there a way to save my favorite random color?",
+			"a": "While the site doesn’t have a built-in save feature, you can copy the hex or RGB codes of your favorite random color for future use."
 		},
 		"q12": {
-			"q": "Can I share the random colors generated with others?",
-			"a": "Absolutely! You can share the words by copying them or sharing the website link for others to generate their own lists."
+			"q": "Are the random color generated from a specific color palette?",
+			"a": "No, the random color generator selects colors across the entire RGB spectrum to ensure maximum variety and randomness."
 		},
 		"q13": {
-			"q": "Are the random color updated regularly?",
-			"a": "The word database is periodically updated to include new and trending words, keeping the content fresh."
+			"q": "Can I use the random color codes in graphic design software?",
+			"a": "Yes, the hex and RGB codes for each random color can be used directly in popular graphic design software like Photoshop, Illustrator, and others."
 		},
 		"q14": {
-			"q": "Does the website track or store my data when I use it?",
-			"a": "No personal data is collected or stored when you use the random color generator, ensuring your privacy."
+			"q": "Does the website support mobile devices for random color generation?",
+			"a": "Yes, the website is fully optimized for mobile devices, allowing you to explore 1000 random color on any screen."
 		},
 		"q15": {
-			"q": "Can I suggest words to be added to the database?",
-			"a": "Of course, you can submit your words through GitHub in the upper right corner of the website."
+			"q": "How often are the random color updated?",
+			"a": "The random color update instantly every time you refresh the page, providing a new set of 1000 random color each time."
 		},
 		"q16": {
-			"q": "Is there an API available to access the random colors programmatically?",
-			"a": "At this time, we do not offer an API, but this feature may be considered in future updates."
+			"q": "Can I share the random color codes with others?",
+			"a": "Yes, you can share the hex and RGB codes of any random color by copying and sending them to friends or colleagues."
 		},
 		"q17": {
-			"q": "What are some practical uses for the random colors generated?",
-			"a": "Users can use the words for creative writing prompts, vocabulary exercises, brainstorming ideas, games, or educational activities."
+			"q": "Are the random color suitable for accessibility standards?",
+			"a": "While the random color generator provides a wide range of colors, it’s recommended to check contrast and accessibility manually for specific uses."
 		},
 		"q18": {
-			"q": "How do you ensure the randomness of the words displayed?",
-			"a": "The website uses a robust randomization algorithm to select words from the database each time the page is refreshed."
+			"q": "Is there an API to get random color codes programmatically?",
+			"a": "Currently, there is no API available, but the website focuses on providing 1000 random color per page refresh for easy manual use."
 		},
 		"q19": {
-			"q": "Is there a way to save my favorite words on the website?",
-			"a": "Currently, the website does not have a feature to save favorites, but you can copy and save words externally."
+			"q": "What formats are available for each random color?",
+			"a": "Each random color is available in both hex code and RGB code formats for versatile usage."
 		},
 		"q20": {
-			"q": "Can I use the random colors for language learning?",
-			"a": "Yes, the random colors are a great resource for language learners to expand their vocabulary and practice new words."
+			"q": "Why is the random color keyword important for this website?",
+			"a": "The keyword random color is essential because it highlights the core feature of the website-generating and displaying 1000 random color with easy-to-copy color codes."
 		}
 	}
 }
