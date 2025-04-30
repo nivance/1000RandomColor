@@ -44,7 +44,7 @@ export default function Page({ params }: { params: { slug: string } }) {
       </nav>
       <ColorShow color={color} />
       <div>
-        <h2 className="text-2xl font-mono text-gray-500 font-bold text-center mt-8 mb-4">Random Colors Similar to #{color}</h2>
+        <h2 className="text-2xl font-mono text-gray-500 font-bold text-center mt-8 mb-4">Random Color Variations Derived from #{color}</h2>
       </div>
       <SpecificColor color={color} />
     </div>
