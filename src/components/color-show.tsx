@@ -1,8 +1,37 @@
 "use client";
-import { hexToRgb } from '@/lib/utils';
+import { hexToRgb, hexToXyz } from '@/lib/utils';
+import chroma from 'chroma-js';
 
 export default function ColorShow({ color }: { color: string }) {
     const rgb = hexToRgb(color);
+    const chromaColor = chroma("#" + color);
+
+    const formatHsv = (hsv: number[]): string => {
+        const [h, s, v] = hsv;
+        return `hsv(${Math.round(h)}, ${(s * 100).toFixed(0)}%, ${(v * 100).toFixed(0)}%)`;
+    };
+    
+    const formatHsl = (hsl: number[]): string => {
+        const [h, s, l] = hsl;
+        return `hsl(${Math.round(h)}, ${(s * 100).toFixed(0)}%, ${(l * 100).toFixed(0)}%)`;
+    };
+
+    const hexToRgbPercentages = (hex: string): string => {
+        // 将 HEX 转换为 RGB
+        const rgb = chroma(hex).rgb(); // 返回 [R, G, B]
+    
+        // 转换为百分比并格式化
+        const percentages = rgb.map((value) => Math.round((value / 255) * 100));
+        return `rgb(${percentages.join('%, ')}%)`;
+    };
+
+    const rgbPercentages = hexToRgbPercentages(color);
+    const hsl = formatHsl(chromaColor.hsl());
+    const hsv = formatHsv(chromaColor.hsv());
+    const lab = chromaColor.lab().map((v) => Math.round(v)).join(', ');
+    const lch = chromaColor.lch().map((v) => Math.round(v)).join(', ');
+    const hcl = chromaColor.hcl().map((v) => Math.round(v)).join(', ');
+    const xyz = hexToXyz(color);
 
     return (
         <div className="flex flex-col lg:flex-row lg:items-stretch items-center justify-center text-white mt-4">
@@ -29,44 +58,44 @@ export default function ColorShow({ color }: { color: string }) {
 
                     {/* RGB Percentages */}
                     <div className="flex items-center justify-between">
-                        <span className="font-bold">RGB Percentages</span>
-                        <span className="font-mono flex items-center">rgb(35%, 93%, 7%)</span>
+                        <span className="font-bold">RGB%</span>
+                        <span className="font-mono flex items-center">{rgbPercentages}</span>
                     </div>
 
                     {/* HSL */}
                     <div className="flex items-center justify-between">
                         <span className="font-bold">HSL</span>
-                        <span className="font-mono flex items-center">hsl(101, 86%, 50%)</span>
+                        <span className="font-mono flex items-center">{hsl}</span>
                     </div>
 
                     {/* HSV */}
                     <div className="flex items-center justify-between">
                         <span className="font-bold">HSV</span>
-                        <span className="font-mono flex items-center">hsv(101, 92%, 93%)</span>
-                    </div>
-
-                    {/* LCH */}
-                    <div className="flex items-center justify-between">
-                        <span className="font-bold">LCH</span>
-                        <span className="font-mono flex items-center">83, 106, 132</span>
+                        <span className="font-mono flex items-center">{hsv}</span>
                     </div>
 
                     {/* LAB */}
                     <div className="flex items-center justify-between">
                         <span className="font-bold">LAB</span>
-                        <span className="font-mono flex items-center">83, -72, 78</span>
+                        <span className="font-mono flex items-center">{lab}</span>
+                    </div>
+
+                    {/* LCH */}
+                    <div className="flex items-center justify-between">
+                        <span className="font-bold">LCH</span>
+                        <span className="font-mono flex items-center">{lch}</span>
                     </div>
 
                     {/* LUV */}
                     <div className="flex items-center justify-between">
-                        <span className="font-bold">LUV</span>
-                        <span className="font-mono flex items-center">83, -66, 99</span>
+                        <span className="font-bold">HCL</span>
+                        <span className="font-mono flex items-center">{hcl}</span>
                     </div>
 
                     {/* XYZ */}
                     <div className="flex items-center justify-between">
                         <span className="font-bold">XYZ</span>
-                        <span className="font-mono flex items-center">34, 63, 11</span>
+                        <span className="font-mono flex items-center">{xyz}</span>
                     </div>
                 </div>
             </div>
