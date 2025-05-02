@@ -5,7 +5,7 @@ import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
-import { hexToRgb } from '@/lib/utils';
+import { hexToRgbPercentages, hexToHsl } from '@/lib/utils';
 
 export const runtime = "edge";
 
@@ -33,7 +33,8 @@ export async function generateMetadata({ params }: { params: { slug: string, loc
 
 export default function Page({ params }: { params: { slug: string } }) {
   const color = params.slug;
-  const rgb = hexToRgb(color);
+  const rgbPercentages = hexToRgbPercentages(color);
+  const hsl = hexToHsl(color);
 
   return (
     <div className="mx-auto w-[90%] lg:w-[80%]">
@@ -47,6 +48,13 @@ export default function Page({ params }: { params: { slug: string } }) {
         <h2 className="text-2xl font-mono text-gray-500 font-bold text-center mt-8 mb-4">Random Color Variations Derived from #{color}</h2>
       </div>
       <SpecificColor color={color} />
+      <div className="mt-8">
+        <h2 className="text-2xl font-mono text-gray-500 font-bold text-center mb-4">#{color} Hex Color Code</h2>
+        <p className="font-mono text-lg text-gray-700 dark:text-gray-300 mb-4">
+          The hexadecimal color code #{color} in the RGB color model  is composed of {rgbPercentages[0]} red, {rgbPercentages[1]} green and {rgbPercentages[2]} blue. 
+          In the HSL color space #{color} has a hue of {hsl[0]}°(degrees), {hsl[1]} saturation and {hsl[2]} lightness. 
+        </p>
+      </div>
     </div>
   );
 }

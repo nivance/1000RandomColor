@@ -1,5 +1,6 @@
 import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
+import chroma from 'chroma-js';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -74,4 +75,11 @@ export function hexToRgbPercentages(hex: string): string[] {
   const g = (parseInt(hex.substring(2, 4), 16) / 255) * 100;
   const b = (parseInt(hex.substring(4, 6), 16) / 255) * 100;
   return [`${r.toFixed(2)}%`, `${g.toFixed(2)}%`, `${b.toFixed(2)}%`];
+}
+
+export function hexToHsl(hex: string): string[] {
+  // 去掉开头的#号（如果有）
+  hex = hex.replace(/^#/, '');  
+  const [h, s, l] = chroma(hex).hsl();
+  return [`${h.toFixed(2)}`, `${(s * 100).toFixed(2)}%`, `${(l * 100).toFixed(2)}%`];
 }
