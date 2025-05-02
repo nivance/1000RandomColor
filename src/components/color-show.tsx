@@ -42,58 +42,76 @@ export default function ColorShow({ color }: { color: string }) {
             />
 
             {/* 右侧信息块 */}
-            <div className="bg-gray-100 text-gray-800 rounded-md shadow-md lg:w-full p-4 flex-grow">
+            <div className="bg-gray-100 text-gray-800 border-2 rounded-md shadow-md lg:w-full p-4 flex-grow">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2 gap-x-12 h-full">
                     {/* Hex */}
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-between cursor-pointer"
+                        title="Click to copy hex code"
+                        onClick={() => navigator.clipboard.writeText(`#${color}`)}>
                         <span className="font-bold">Hex</span>
                         <span className="font-mono flex items-center">#{color}</span>
                     </div>
 
                     {/* RGB */}
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-between cursor-pointer"
+                        title="Click to copy RGB code"
+                        onClick={() => navigator.clipboard.writeText(rgb)}>
                         <span className="font-bold">RGB</span>
                         <span className="font-mono flex items-center">{rgb}</span>
                     </div>
 
                     {/* RGB Percentages */}
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-between cursor-pointer"
+                        title="Click to copy RGB Percentages"
+                        onClick={() => navigator.clipboard.writeText(rgbPercentages)}>
                         <span className="font-bold">RGB%</span>
                         <span className="font-mono flex items-center">{rgbPercentages}</span>
                     </div>
 
                     {/* HSL */}
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-between cursor-pointer"
+                        title="Click to copy HSL"
+                        onClick={() => navigator.clipboard.writeText(hsl)}>
                         <span className="font-bold">HSL</span>
                         <span className="font-mono flex items-center">{hsl}</span>
                     </div>
 
                     {/* HSV */}
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-between cursor-pointer"
+                        title="Click to copy HSV"
+                        onClick={() => navigator.clipboard.writeText(hsv)}>
                         <span className="font-bold">HSV</span>
                         <span className="font-mono flex items-center">{hsv}</span>
                     </div>
 
                     {/* LAB */}
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-between cursor-pointer"
+                        title="Click to copy LAB"
+                        onClick={() => navigator.clipboard.writeText(lab)}>
                         <span className="font-bold">LAB</span>
                         <span className="font-mono flex items-center">{lab}</span>
                     </div>
 
                     {/* LCH */}
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-between cursor-pointer"
+                        title="Click to copy LCH"
+                        onClick={() => navigator.clipboard.writeText(lch)}>
                         <span className="font-bold">LCH</span>
                         <span className="font-mono flex items-center">{lch}</span>
                     </div>
 
-                    {/* LUV */}
-                    <div className="flex items-center justify-between">
+                    {/* HCL */}
+                    <div className="flex items-center justify-between cursor-pointer"
+                        title="Click to copy HCL"
+                        onClick={() => navigator.clipboard.writeText(hcl)}>
                         <span className="font-bold">HCL</span>
                         <span className="font-mono flex items-center">{hcl}</span>
                     </div>
 
                     {/* XYZ */}
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-between cursor-pointer"
+                        title="Click to copy XYZ"
+                        onClick={() => navigator.clipboard.writeText(xyz)}>
                         <span className="font-bold">XYZ</span>
                         <span className="font-mono flex items-center">{xyz}</span>
                     </div>
