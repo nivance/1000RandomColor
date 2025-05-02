@@ -59,3 +59,19 @@ export function hexToXyz(hex: string): string {
   // 保留小数点后2位
   return `xyz(${x.toFixed(2)}%, ${y.toFixed(2)}%, ${z.toFixed(2)}%)`;
 }
+
+/**
+ * 将HEX颜色字符串转换为RGB百分比格式
+ * @param hex HEX颜色字符串（如 #dee05c）
+ * @returns RGB百分比格式的字符串（如 [87.06%, 87.84%, 36.08%]）
+ */
+export function hexToRgbPercentages(hex: string): string[] {
+  // 去掉开头的#号（如果有）
+  hex = hex.replace(/^#/, '');
+
+  // 将HEX分解为R、G、B
+  const r = (parseInt(hex.substring(0, 2), 16) / 255) * 100;
+  const g = (parseInt(hex.substring(2, 4), 16) / 255) * 100;
+  const b = (parseInt(hex.substring(4, 6), 16) / 255) * 100;
+  return [`${r.toFixed(2)}%`, `${g.toFixed(2)}%`, `${b.toFixed(2)}%`];
+}
