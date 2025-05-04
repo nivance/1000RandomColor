@@ -63,15 +63,15 @@ export default function Page({ params }: { params: { slug: string } }) {
       </div>
       <div className="m-8">
         <h2 className="text-2xl font-mono text-gray-500 font-bold border-b-2 text-center mb-4">Shades of #{color}</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8">
+        <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 gap-0">
           {shades.map((shade, index) => (
-            <div key={index} className="flex flex-col items-center">
+            <div key={index} className="flex flex-col">
               <div
-                className="w-16 h-16 rounded-t border border-gray-200"
-                style={{ backgroundColor: `${shade}` }}
+                className="h-24 w-full"
+                style={{ backgroundColor: shade }}
               />
-              <div className="w-full bg-gray-50 text-center rounded-b border border-t-0 border-gray-200">
-                <p className="font-mono text-sm text-gray-600">{shade}</p>
+              <div className="bg-white py-2 text-center">
+                <p className="font-mono text-xs text-gray-600">{shade}</p>
               </div>
             </div>
           ))}
