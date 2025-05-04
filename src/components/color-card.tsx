@@ -11,16 +11,16 @@ export default function ColorCard({ randomColors }: { randomColors: string[] }) 
         document.body.appendChild(textArea)
         textArea.select()
         try {
-          document.execCommand('copy')
-          setCopiedCode(text)
-          setTimeout(() => {
-            setCopiedCode(null)
-          }, 2000)
+            document.execCommand('copy')
+            setCopiedCode(text)
+            setTimeout(() => {
+                setCopiedCode(null)
+            }, 2000)
         } catch (err) {
-          console.error('Failed to copy text: ', err)
+            console.error('Failed to copy text: ', err)
         }
         document.body.removeChild(textArea)
-      }
+    }
 
     return (
         <section className="mb-12">
