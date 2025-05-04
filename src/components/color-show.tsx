@@ -1,6 +1,7 @@
 "use client";
 import { hexToRgb, hexToXyz } from '@/lib/utils';
 import chroma from 'chroma-js';
+import React, { useState } from 'react'
 
 export default function ColorShow({ color }: { color: string }) {
     const rgb = hexToRgb(color);
@@ -10,7 +11,7 @@ export default function ColorShow({ color }: { color: string }) {
         const [h, s, v] = hsv;
         return `hsv(${Math.round(h)}, ${(s * 100).toFixed(0)}%, ${(v * 100).toFixed(0)}%)`;
     };
-    
+
     const formatHsl = (hsl: number[]): string => {
         const [h, s, l] = hsl;
         return `hsl(${Math.round(h)}, ${(s * 100).toFixed(0)}%, ${(l * 100).toFixed(0)}%)`;
@@ -19,7 +20,7 @@ export default function ColorShow({ color }: { color: string }) {
     const hexToRgbPercentages = (hex: string): string => {
         // 将 HEX 转换为 RGB
         const rgb = chroma(hex).rgb(); // 返回 [R, G, B]
-    
+
         // 转换为百分比并格式化
         const percentages = rgb.map((value) => Math.round((value / 255) * 100));
         return `rgb(${percentages.join('%, ')}%)`;
@@ -32,6 +33,25 @@ export default function ColorShow({ color }: { color: string }) {
     const lch = chromaColor.lch().map((v) => Math.round(v)).join(', ');
     const hcl = chromaColor.hcl().map((v) => Math.round(v)).join(', ');
     const xyz = hexToXyz(color);
+
+    const [copied, setCopied] = useState<boolean>(false)
+
+    const copyToClipboard = (text: string) => {
+        const textArea = document.createElement('textarea')
+        textArea.value = text
+        document.body.appendChild(textArea)
+        textArea.select()
+        try {
+            document.execCommand('copy')
+            setCopied(true)
+            setTimeout(() => {
+                setCopied(false)
+            }, 2000)
+        } catch (err) {
+            console.error('Failed to copy text: ', err)
+        }
+        document.body.removeChild(textArea)
+    }
 
     return (
         <div className="flex flex-col lg:flex-row lg:items-stretch items-center justify-center text-white mt-4">
@@ -47,7 +67,7 @@ export default function ColorShow({ color }: { color: string }) {
                     {/* Hex */}
                     <div className="flex items-center justify-between cursor-pointer"
                         title="Click to copy hex code"
-                        onClick={() => navigator.clipboard.writeText(`#${color}`)}>
+                        onClick={() => copyToClipboard(`#${color}`)}>
                         <span className="font-bold">Hex</span>
                         <span className="font-mono flex items-center">#{color}</span>
                     </div>
@@ -55,7 +75,7 @@ export default function ColorShow({ color }: { color: string }) {
                     {/* RGB */}
                     <div className="flex items-center justify-between cursor-pointer"
                         title="Click to copy RGB code"
-                        onClick={() => navigator.clipboard.writeText(rgb)}>
+                        onClick={() => copyToClipboard(rgb)}>
                         <span className="font-bold">RGB</span>
                         <span className="font-mono flex items-center">{rgb}</span>
                     </div>
@@ -63,7 +83,7 @@ export default function ColorShow({ color }: { color: string }) {
                     {/* RGB Percentages */}
                     <div className="flex items-center justify-between cursor-pointer"
                         title="Click to copy RGB Percentages"
-                        onClick={() => navigator.clipboard.writeText(rgbPercentages)}>
+                        onClick={() => copyToClipboard(rgbPercentages)}>
                         <span className="font-bold">RGB%</span>
                         <span className="font-mono flex items-center">{rgbPercentages}</span>
                     </div>
@@ -71,7 +91,7 @@ export default function ColorShow({ color }: { color: string }) {
                     {/* HSL */}
                     <div className="flex items-center justify-between cursor-pointer"
                         title="Click to copy HSL"
-                        onClick={() => navigator.clipboard.writeText(hsl)}>
+                        onClick={() => copyToClipboard(hsl)}>
                         <span className="font-bold">HSL</span>
                         <span className="font-mono flex items-center">{hsl}</span>
                     </div>
@@ -79,7 +99,7 @@ export default function ColorShow({ color }: { color: string }) {
                     {/* HSV */}
                     <div className="flex items-center justify-between cursor-pointer"
                         title="Click to copy HSV"
-                        onClick={() => navigator.clipboard.writeText(hsv)}>
+                        onClick={() => copyToClipboard(hsv)}>
                         <span className="font-bold">HSV</span>
                         <span className="font-mono flex items-center">{hsv}</span>
                     </div>
@@ -87,7 +107,7 @@ export default function ColorShow({ color }: { color: string }) {
                     {/* LAB */}
                     <div className="flex items-center justify-between cursor-pointer"
                         title="Click to copy LAB"
-                        onClick={() => navigator.clipboard.writeText(lab)}>
+                        onClick={() => copyToClipboard(lab)}>
                         <span className="font-bold">LAB</span>
                         <span className="font-mono flex items-center">{lab}</span>
                     </div>
@@ -95,7 +115,7 @@ export default function ColorShow({ color }: { color: string }) {
                     {/* LCH */}
                     <div className="flex items-center justify-between cursor-pointer"
                         title="Click to copy LCH"
-                        onClick={() => navigator.clipboard.writeText(lch)}>
+                        onClick={() => copyToClipboard(lch)}>
                         <span className="font-bold">LCH</span>
                         <span className="font-mono flex items-center">{lch}</span>
                     </div>
@@ -103,7 +123,7 @@ export default function ColorShow({ color }: { color: string }) {
                     {/* HCL */}
                     <div className="flex items-center justify-between cursor-pointer"
                         title="Click to copy HCL"
-                        onClick={() => navigator.clipboard.writeText(hcl)}>
+                        onClick={() => copyToClipboard(hcl)}>
                         <span className="font-bold">HCL</span>
                         <span className="font-mono flex items-center">{hcl}</span>
                     </div>
@@ -111,10 +131,17 @@ export default function ColorShow({ color }: { color: string }) {
                     {/* XYZ */}
                     <div className="flex items-center justify-between cursor-pointer"
                         title="Click to copy XYZ"
-                        onClick={() => navigator.clipboard.writeText(xyz)}>
+                        onClick={() => copyToClipboard(xyz)}>
                         <span className="font-bold">XYZ</span>
                         <span className="font-mono flex items-center">{xyz}</span>
                     </div>
+
+                    {copied && (<div className="flex items-center justify-center">
+                        <span className="font-mono font-bold text-green-500 rounded">
+                            Copied!
+                        </span>
+                    </div>
+                    )}
                 </div>
             </div>
         </div>
