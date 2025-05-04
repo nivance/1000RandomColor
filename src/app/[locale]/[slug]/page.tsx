@@ -66,12 +66,16 @@ export default function Page({ params }: { params: { slug: string } }) {
         <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 gap-0">
           {shades.map((shade, index) => (
             <div key={index} className="flex flex-col">
-              <div
-                className="h-24 w-full"
-                style={{ backgroundColor: shade }}
-              />
+              <Link href={shade.replace(/^#/, '')} key={index} >
+                <div
+                  className="h-24 w-full"
+                  style={{ backgroundColor: shade }}
+                />
+              </Link>
               <div className="bg-white py-2 text-center">
-                <p className="font-mono text-xs text-gray-600">{shade}</p>
+                <Link href={shade.replace(/^#/, '')} key={index} >
+                  <p className="font-mono text-xs text-gray-600 hover:text-blue-500 hover:underline">{shade}</p>
+                </Link>
               </div>
             </div>
           ))}
