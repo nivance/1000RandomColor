@@ -50,8 +50,8 @@ export default function Page({ params }: { params: { slug: string } }) {
         <h2 className="text-2xl font-mono text-gray-500 font-bold text-center mt-8 mb-4">Random Color Variations Derived from #{color}</h2>
       </div>
       <SpecificColor color={color} />
-      <div className="m-8">
-        <h2 className="text-2xl font-mono text-gray-500 font-bold border-b-2 text-center mb-4">#{color} Hex Color Code</h2>
+      <div>
+        <h2 className="text-2xl font-mono text-gray-500 font-bold border-b-2 text-start mb-4">#{color} Hex Color Code</h2>
         <p className="font-mono text-lg text-gray-700 dark:text-gray-300 mb-4">
           A Hex Color Code is a six-digit combination of numbers and letters used in web design and graphic design to represent colors. It begins with a hash symbol (#) followed by six characters.
           Each pair of characters represents the intensity of red, green, and blue (RGB) in a color, using values from 00 to FF (0 to 255 in decimal). The combination of these values is used to create a range of colors that can be used in a variety of applications.
@@ -61,8 +61,8 @@ export default function Page({ params }: { params: { slug: string } }) {
           In the HSL color space #{color} has a hue of {hsl[0]}°(degrees), {hsl[1]} saturation and {hsl[2]} lightness.
         </p>
       </div>
-      <div className="m-8">
-        <h2 className="text-2xl font-mono text-gray-500 font-bold border-b-2 text-center mb-4">Shades of #{color}</h2>
+      <div className="mt-8">
+        <h2 className="text-2xl font-mono text-gray-500 font-bold border-b-2 text-start mb-4">Shades of #{color}</h2>
         <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 gap-0">
           {shades.map((shade, index) => (
             <div key={index} className="flex flex-col">
@@ -78,7 +78,7 @@ export default function Page({ params }: { params: { slug: string } }) {
         </div>
       </div>
       <div className="mt-8">
-        <h2 className="text-2xl font-mono text-gray-500 font-bold border-b-2 text-center mb-4">CSS Code Examples</h2>
+        <h2 className="text-2xl font-mono text-gray-500 font-bold border-b-2 text-start mb-4">CSS Code Examples</h2>
         <div className="mb-8">
           <h3 className="text-xl font-mono text-gray-500 font-bold text-start mb-2">Text with hex color #{color}</h3>
           <p className="font-mono text-lg" style={{ color: `#{color}` }}>
@@ -101,10 +101,9 @@ export default function Page({ params }: { params: { slug: string } }) {
           </pre>
         </div>
         <div className="mb-8">
-          {/* 带有背景颜色的段落 */}
           <h3 className="text-xl font-mono text-gray-500 font-bold text-start mb-2">Background with hex color #{color}</h3>
           <div
-            className="font-mono text-lg text-white p-2 rounded mt-4 mb-2 border rounded"
+            className="font-mono text-lg text-white p-2 rounded mt-4 mb-2 border"
             style={{ backgroundColor: `#${color}` }}
           >
             The background color of this paragraph is #{color}。
