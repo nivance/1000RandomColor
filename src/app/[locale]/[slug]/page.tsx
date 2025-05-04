@@ -5,7 +5,7 @@ import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
-import { hexToRgb, hexToRgbPercentages, hexToHsl } from '@/lib/utils';
+import { hexToRgb, hexToRgbPercentages, hexToHsl, generateShades } from '@/lib/utils';
 
 export const runtime = "edge";
 
@@ -36,6 +36,7 @@ export default function Page({ params }: { params: { slug: string } }) {
   const rgbPercentages = hexToRgbPercentages(color);
   const hsl = hexToHsl(color);
   const rgb = hexToRgb(color);
+  const shades = generateShades(color, 12);
 
   return (
     <div className="mx-auto w-[90%] lg:w-[80%]">
@@ -60,7 +61,22 @@ export default function Page({ params }: { params: { slug: string } }) {
           In the HSL color space #{color} has a hue of {hsl[0]}°(degrees), {hsl[1]} saturation and {hsl[2]} lightness.
         </p>
       </div>
-      {/* CSS代码示例 */}
+      <div className="m-8">
+        <h2 className="text-2xl font-mono text-gray-500 font-bold border-b-2 text-center mb-4">Shades of #{color}</h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8">
+          {shades.map((shade, index) => (
+            <div key={index} className="flex flex-col items-center">
+              <div
+                className="w-16 h-16 rounded-t border border-gray-200"
+                style={{ backgroundColor: `${shade}` }}
+              />
+              <div className="w-full bg-gray-50 text-center rounded-b border border-t-0 border-gray-200">
+                <p className="font-mono text-sm text-gray-600">{shade}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
       <div className="mt-8">
         <h2 className="text-2xl font-mono text-gray-500 font-bold border-b-2 text-center mb-4">CSS Code Examples</h2>
         <div className="mb-8">
