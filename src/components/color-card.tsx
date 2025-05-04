@@ -1,7 +1,27 @@
 import Link from 'next/link';
 import { hexToRgb } from '@/lib/utils';
+import React, { useState } from 'react'
 
 export default function ColorCard({ randomColors }: { randomColors: string[] }) {
+    const [copiedCode, setCopiedCode] = useState<string | null>(null)
+
+    const copyToClipboard = (text: string) => {
+        const textArea = document.createElement('textarea')
+        textArea.value = text
+        document.body.appendChild(textArea)
+        textArea.select()
+        try {
+          document.execCommand('copy')
+          setCopiedCode(text)
+          setTimeout(() => {
+            setCopiedCode(null)
+          }, 2000)
+        } catch (err) {
+          console.error('Failed to copy text: ', err)
+        }
+        document.body.removeChild(textArea)
+      }
+
     return (
         <section className="mb-12">
             <div className="mx-auto">
@@ -18,16 +38,26 @@ export default function ColorCard({ randomColors }: { randomColors: string[] }) 
                                 <p
                                     className="font-mono text-base text-gray-500 hover:text-black cursor-pointer"
                                     title="Click to copy rgb code"
-                                    onClick={() => navigator.clipboard.writeText(color)}
+                                    onClick={() => copyToClipboard(color)}
                                 >
                                     {color}
+                                    {copiedCode === color && (
+                                        <span className="absolute left-8 font-bold text-xs text-green-500  px-2 py-1 rounded">
+                                            Copied!
+                                        </span>
+                                    )}
                                 </p>
                                 <p
                                     className="font-mono text-base text-gray-500 hover:text-black cursor-pointer"
                                     title="Click to copy hex code"
-                                    onClick={() => navigator.clipboard.writeText(hexToRgb(color))}
+                                    onClick={() => copyToClipboard(hexToRgb(color))}
                                 >
                                     {hexToRgb(color)}
+                                    {copiedCode === hexToRgb(color) && (
+                                        <span className="absolute left-8 font-bold text-xs text-green-500  px-2 py-1 rounded">
+                                            Copied!
+                                        </span>
+                                    )}
                                 </p>
                             </div>
                         </div>
