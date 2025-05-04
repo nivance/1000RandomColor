@@ -23,14 +23,16 @@ export function removeProtocolFromUrl(url: string): string {
  */
 export function hexToRgb(hex: string): string {
   // 去掉开头的#号（如果有）
-  hex = hex.replace(/^#/, '');
+  const rgbValue = hexToRgbVaule(hex);
+  return `rgb(${rgbValue.r},${rgbValue.g},${rgbValue.b})`;
+}
 
-  // 将HEX分解为R、G、B
-  const r = parseInt(hex.substring(0, 2), 16);
-  const g = parseInt(hex.substring(2, 4), 16);
-  const b = parseInt(hex.substring(4, 6), 16);
-
-  return `rgb(${r},${g},${b})`;
+function hexToRgbVaule(hex: string) {
+  const cleanHex = hex.replace(/^#/, '');
+  const r = parseInt(cleanHex.substring(0, 2), 16);
+  const g = parseInt(cleanHex.substring(2, 4), 16);
+  const b = parseInt(cleanHex.substring(4, 6), 16);
+  return { r, g, b };
 }
 
 /**
@@ -79,7 +81,28 @@ export function hexToRgbPercentages(hex: string): string[] {
 
 export function hexToHsl(hex: string): string[] {
   // 去掉开头的#号（如果有）
-  hex = hex.replace(/^#/, '');  
+  hex = hex.replace(/^#/, '');
   const [h, s, l] = chroma(hex).hsl();
   return [`${h.toFixed(2)}`, `${(s * 100).toFixed(2)}%`, `${(l * 100).toFixed(2)}%`];
 }
+
+function rgbToHex(r: number, g: number, b: number) {
+  const componentToHex = (c: number) => {
+    const hex = c.toString(16);
+    return hex.length == 1 ? "0" + hex : hex;
+  };
+  return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+}
+
+export function generateShades(hex: string, numberOfShades: number) {
+  const { r, g, b } = hexToRgbVaule(hex);
+  const shades = Array.from({ length: numberOfShades }, (_, i) => {
+    const shadeFactor = i / numberOfShades;
+    const newR = Math.max(0, Math.floor(r * (1 - shadeFactor)));
+    const newG = Math.max(0, Math.floor(g * (1 - shadeFactor)));
+    const newB = Math.max(0, Math.floor(b * (1 - shadeFactor)));
+    return rgbToHex(newR, newG, newB);
+  });
+
+  return shades;
+}    
