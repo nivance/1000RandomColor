@@ -105,4 +105,19 @@ export function generateShades(hex: string, numberOfShades: number) {
   });
 
   return shades;
-}    
+}
+
+export function generateTints(hex: string, numberOfTints: number) {
+  const { r, g, b } = hexToRgbVaule(hex);
+  const tints = [];
+
+  for (let i = 0; i < numberOfTints; i++) {
+    const tintFactor = i / numberOfTints;
+    const newR = Math.min(255, Math.floor(r + (255 - r) * tintFactor));
+    const newG = Math.min(255, Math.floor(g + (255 - g) * tintFactor));
+    const newB = Math.min(255, Math.floor(b + (255 - b) * tintFactor));
+    tints.push(rgbToHex(newR, newG, newB));
+  }
+
+  return tints;
+}
