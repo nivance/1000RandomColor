@@ -36,25 +36,25 @@ export default function ColorCard({ randomColors }: { randomColors: string[] }) 
                             </Link>
                             <div className="text-center mt-2">
                                 <p
-                                    className="font-mono text-base text-gray-500 hover:text-black cursor-pointer"
+                                    className="font-mono text-base text-gray-500 hover:text-black cursor-pointer flex items-center justify-between relative"
                                     title="Click to copy rgb code"
                                     onClick={() => copyToClipboard(color)}
                                 >
-                                    {color}
+                                    <span className="text-center flex-grow">{color}</span>
                                     {copiedCode === color && (
-                                        <span className="absolute left-8 font-bold text-xs text-green-500  px-2 py-1 rounded">
+                                        <span className="font-bold text-xs text-green-500 px-2 py-1 rounded">
                                             Copied!
                                         </span>
                                     )}
                                 </p>
                                 <p
-                                    className="font-mono text-base text-gray-500 hover:text-black cursor-pointer"
+                                    className="font-mono text-base text-gray-500 hover:text-black cursor-pointer flex items-center justify-between relative"
                                     title="Click to copy hex code"
                                     onClick={() => copyToClipboard(hexToRgb(color))}
                                 >
-                                    {hexToRgb(color)}
+                                    <span className="text-center flex-grow">{hexToRgb(color)}</span>
                                     {copiedCode === hexToRgb(color) && (
-                                        <span className="absolute left-8 font-bold text-xs text-green-500  px-2 py-1 rounded">
+                                        <span className="font-bold text-xs text-green-500 px-2 py-1 rounded">
                                             Copied!
                                         </span>
                                     )}
