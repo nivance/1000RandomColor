@@ -5,7 +5,7 @@ import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
-import { hexToRgb, hexToRgbPercentages, hexToHsl, generateShades } from '@/lib/utils';
+import { hexToRgb, hexToRgbPercentages, hexToHsl, generateShades, generateTints } from '@/lib/utils';
 
 export const runtime = "edge";
 
@@ -37,6 +37,7 @@ export default function Page({ params }: { params: { slug: string } }) {
   const hsl = hexToHsl(color);
   const rgb = hexToRgb(color);
   const shades = generateShades(color, 12);
+  const tints = generateTints(color, 12);
 
   return (
     <div className="mx-auto w-[90%] lg:w-[80%]">
@@ -75,6 +76,26 @@ export default function Page({ params }: { params: { slug: string } }) {
               <div className="bg-white py-2 text-center">
                 <Link href={shade.replace(/^#/, '')} key={index} >
                   <p className="font-mono text-xs text-gray-600 hover:text-blue-500 hover:underline">{shade}</p>
+                </Link>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="mt-8">
+        <h2 className="text-2xl font-mono text-gray-500 font-bold border-b-2 text-start mb-4">Tints of #{color}</h2>
+        <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 gap-0">
+          {tints.map((tint, index) => (
+            <div key={index} className="flex flex-col">
+              <Link href={tint.replace(/^#/, '')} key={index} >
+                <div
+                  className="h-24 w-full"
+                  style={{ backgroundColor: tint }}
+                />
+              </Link>
+              <div className="bg-white py-2 text-center">
+                <Link href={tint.replace(/^#/, '')} key={index} >
+                  <p className="font-mono text-xs text-gray-600 hover:text-blue-500 hover:underline">{tint}</p>
                 </Link>
               </div>
             </div>
