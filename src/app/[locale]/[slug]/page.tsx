@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 import {
   hexToRgb, hexToRgbPercentages, hexToHsl, generateShades, generateTints,
-  getComplementaryColor
+  getComplementaryColor, getTriadicColors
 } from '@/lib/utils';
 
 export const runtime = "edge";
@@ -42,6 +42,7 @@ export default function Page({ params }: { params: { slug: string } }) {
   const shades = generateShades(color, 12);
   const tints = generateTints(color, 12);
   const complementaryColor = getComplementaryColor(color);
+  const triadicColors = getTriadicColors(color);
 
   return (
     <div className="mx-auto w-[90%] lg:w-[80%]">
@@ -103,10 +104,10 @@ export default function Page({ params }: { params: { slug: string } }) {
           <div className="flex flex-col">
             <h3 className="text-lg font-mono text-gray-700 font-bold border-b-2 text-start mb-4">Complementary colors</h3>
             <p className="font-mono mb-2">Complementary colors are pairs of colors that sit directly opposite each other on the color wheel. When placed side by side, they create strong visual contrast and make each other appear more vibrant. Common complementary pairs include red and green, blue and orange, and yellow and purple.</p>
-            <div className="grid grid-cols-2 gap-0">
+            <div className="grid grid-cols-2 gap-1">
               <div className="flex flex-col">
                 <Link href={color.replace(/^#/, '')}>
-                  <div className="h-24 w-full"
+                  <div className="h-24 w-full rounded-md"
                     style={{ backgroundColor: `#${color}` }}
                   />
                 </Link>
@@ -118,7 +119,7 @@ export default function Page({ params }: { params: { slug: string } }) {
               </div>
               <div className="flex flex-col">
                 <Link href={complementaryColor.replace(/^#/, '')}>
-                  <div className="h-24 w-full"
+                  <div className="h-24 w-full rounded-md"
                     style={{ backgroundColor: `${complementaryColor}` }}
                   />
                 </Link>
@@ -128,6 +129,27 @@ export default function Page({ params }: { params: { slug: string } }) {
                   </Link>
                 </div>
               </div>
+            </div>
+          </div>
+          <div className="flex flex-col">
+            <h3 className="text-lg font-mono text-gray-700 font-bold border-b-2 text-start mb-4">Triadic colors</h3>
+            <p className="font-mono mb-2">Triadic colors are a group of three colors that are evenly spaced around the color wheel, forming a perfect triangle. This color scheme offers strong visual contrast while maintaining harmony and balance. Common triadic combinations include red, yellow, and blue or purple, green, and orange.</p>
+            <div className="grid grid-cols-3 gap-1">
+              {triadicColors.map((triadicColor, index) => (
+                <div key={index} className="flex flex-col">
+                  <Link href={triadicColor.replace(/^#/, '')} key={index} >
+                    <div
+                      className="h-24 w-full rounded-md"
+                      style={{ backgroundColor: triadicColor }}
+                    />
+                  </Link>
+                  <div className="bg-white py-2 text-center">
+                    <Link href={triadicColor.replace(/^#/, '')} key={index} >
+                      <p className="font-mono text-base text-gray-600 hover:text-blue-500 hover:underline">{triadicColor}</p>
+                    </Link>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

@@ -153,3 +153,61 @@ export function getComplementaryColor(hex: string) {
 
   return complementaryHex;
 }
+
+export function getTriadicColors(hexColor: string) {
+  // 移除 "#" 符号（如果存在）
+  hexColor = hexColor = hexColor.replace("#", "");
+
+  // 确保颜色代码是 6 位
+  if (hexColor.length !== 6) {
+    throw new Error("Invalid hex color code. Must be a 6-digit value.");
+  }
+
+  // 将十六进制颜色代码转换为 RGB
+  const r = parseInt(hexColor.substring(0, 2), 16) / 255;
+  const g = parseInt(hexColor.substring(2, 4), 16) / 255;
+  const b = parseInt(hexColor.substring(4, 6), 16) / 255;
+
+  // 将 RGB 转换为 HSL
+  const [h, s, l] = chroma(hexColor).hsl();
+
+  // 计算三元组色相
+  const h1 = (h + 120) % 360;
+  const h2 = (h + 240) % 360;
+
+  // 将 HSL 转换为十六进制颜色代码
+  const hex1 = hslToHex(h1, s, l);
+  const hex2 = hslToHex(h2, s, l);
+
+  return [hex1, "#"+hexColor, hex2];
+}
+
+function hslToHex(h: number, s: number, l: number): string {
+  let r, g, b;
+
+  if (s === 0) {
+    r = g = b = l; // achromatic
+  } else {
+    const hue2rgb = (p: number, q: number, t: number) => {
+      if (t < 0) t += 1;
+      if (t > 1) t -= 1;
+      if (t < 1 / 6) return p + (q - p) * 6 * t;
+      if (t < 1 / 2) return q;
+      if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
+      return p;
+    };
+
+    const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+    const p = 2 * l - q;
+    r = hue2rgb(p, q, h / 360 + 1 / 3);
+    g = hue2rgb(p, q, h / 360);
+    b = hue2rgb(p, q, h / 360 - 1 / 3);
+  }
+
+  const toHex = (x: number) => {
+    const hex = Math.round(x * 255).toString(16);
+    return hex.length === 1 ? "0" + hex : hex;
+  };
+
+  return "#" + toHex(r) + toHex(g) + toHex(b);
+}
