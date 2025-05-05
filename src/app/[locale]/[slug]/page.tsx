@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 import {
   hexToRgb, hexToRgbPercentages, hexToHsl, generateShades, generateTints,
-  getComplementaryColor, getTriadicColors, getTetradicColors
+  getComplementaryColor, getTriadicColors, getTetradicColors, getMonochromaticColors
 } from '@/lib/utils';
 
 export const runtime = "edge";
@@ -44,6 +44,7 @@ export default function Page({ params }: { params: { slug: string } }) {
   const complementaryColor = getComplementaryColor(color);
   const triadicColors = getTriadicColors(color);
   const tetradicColors = getTetradicColors(color);
+  const monochromaticColors = getMonochromaticColors(color, 6);
 
   return (
     <div className="mx-auto w-[90%] lg:w-[80%]">
@@ -173,6 +174,27 @@ export default function Page({ params }: { params: { slug: string } }) {
                   <div className="bg-white py-2 text-center">
                     <Link href={tetradicColor.replace(/^#/, '')} key={index} >
                       <p className="font-mono text-base text-gray-600 hover:text-blue-500 hover:underline">{tetradicColor}</p>
+                    </Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="flex flex-col">
+            <h3 className="text-lg font-mono text-gray-700 font-bold border-b-2 text-center mb-4">Monochromatic colors</h3>
+            <p className="font-mono mb-2 text-sm">Monochromatic colors are all the variations of a single hue, created by adjusting its shades (adding black), tints (adding white), and tones (adding gray). Because all the colors in a monochromatic palette come from the same base hue, they naturally work well together and provide a sense of unity.</p>
+            <div className="grid grid-cols-6 gap-0">
+              {monochromaticColors.map((monochromaticColor, index) => (
+                <div key={index} className="flex flex-col">
+                  <Link href={monochromaticColor.replace(/^#/, '')} key={index} >
+                    <div
+                      className="h-24 w-full"
+                      style={{ backgroundColor: monochromaticColor }}
+                    />
+                  </Link>
+                  <div className="bg-white py-2 text-center">
+                    <Link href={monochromaticColor.replace(/^#/, '')} key={index} >
+                      <p className="font-mono text-base text-gray-600 hover:text-blue-500 hover:underline">{monochromaticColor}</p>
                     </Link>
                   </div>
                 </div>

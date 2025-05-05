@@ -245,3 +245,30 @@ export function getTetradicColors(hexColor: string, type = "rectangle") {
 
   return ["#" + hexColor, hex1, hex2, hex3];
 }
+
+
+export function getMonochromaticColors(hexColor: string, count = 5) {
+  // 移除 "#" 符号（如果存在）
+  hexColor = hexColor.replace("#", "");
+
+  // 确保颜色代码是 6 位
+  if (hexColor.length !== 6) {
+    throw new Error("Invalid hex color code. Must be a 6-digit value.");
+  }
+
+  // 将 RGB 转换为 HSL
+  const [h, s, l] = chroma(hexColor).hsl();
+
+  const colors = [];
+  for (let i = 0; i < count; i++) {
+    // 调整亮度和饱和度
+    const saturation = Math.max(0, Math.min(1, s + (i - Math.floor(count / 2)) * 0.1));
+    const lightness = Math.max(0, Math.min(1, l + (i - Math.floor(count / 2)) * 0.1));
+
+    // 将 HSL 转换为十六进制颜色代码
+    const hex = hslToHex(h, saturation, lightness);
+    colors.push(hex);
+  }
+
+  return colors;
+}
