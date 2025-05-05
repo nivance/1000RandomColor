@@ -204,6 +204,50 @@ export default function Page({ params }: { params: { slug: string } }) {
         </div>
       </div>
       <div className="mt-8">
+        <h2 className="text-2xl font-mono text-gray-700 font-bold border-b-2 text-start mb-4">Preview</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
+          <div className="flex flex-col">
+            <h3 className="text-lg font-mono text-gray-700 font-bold text-center mb-4">White background</h3>
+            <div className="bg-white h-48 rounded-md border-2 border-gray-300 flex items-center justify-center">
+              <div className="h-36 w-36 rounded-md"
+                style={{ backgroundColor: `#${color}` }}
+              />
+            </div>
+            <p className="font-mono text-start text-sm text-gray-700 tracking-tighter">This visualization shows how the color #{color} looks on a white background.</p>
+          </div>
+          <div className="flex flex-col">
+            <h3 className="text-lg font-mono text-gray-700 font-bold text-center mb-4">Black background</h3>
+            <div className="bg-white h-48 rounded-md border-2 border-gray-300 flex items-center justify-center">
+              <div className="h-36 w-36 rounded-md"
+                style={{ backgroundColor: `#${color}` }}
+              />
+            </div>
+            <p className="font-mono text-start text-sm text-gray-700 tracking-tighter">This visualization shows how the color #{color} looks on a black background.</p>
+          </div>
+        </div>
+        <div className="mt-8">
+          <h3 className="text-lg font-mono text-gray-700 font-bold text-center mb-4">Color background #{color}</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
+            <div className="flex flex-col">
+              <div className="h-48 rounded-md border-2 border-gray-300 flex items-center justify-center"
+                style={{ backgroundColor: `#${color}` }}>
+                <div className="h-36 w-36 bg-white rounded-md"
+                />
+              </div>
+              <p className="font-mono text-start text-sm text-gray-700 tracking-tighter">This visualization shows how the color white looks on a #{color} background.</p>
+            </div>
+            <div className="flex flex-col">
+              <div className="h-48 rounded-md border-2 border-gray-300 flex items-center justify-center"
+                style={{ backgroundColor: `#${color}` }}>
+                <div className="h-36 w-36 bg-black rounded-md"
+                />
+              </div>
+              <p className="font-mono text-start text-sm text-gray-700 tracking-tighter">This visualization shows how the color black looks on a #{color} background.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="mt-8">
         <h2 className="text-2xl font-mono text-gray-700 font-bold border-b-2 text-start mb-4">CSS Code Examples</h2>
         <div className="mb-8">
           <h3 className="text-xl font-mono text-gray-500 font-bold text-start mb-2">Text with hex color #{color}</h3>
@@ -251,6 +295,6 @@ export default function Page({ params }: { params: { slug: string } }) {
         <h2 className="text-2xl font-mono text-gray-700 font-bold text-center mt-8 mb-4">Random Color Variations Derived from #{color}</h2>
       </div>
       <SpecificColor color={color} />
-    </div>
+    </div >
   );
 }
