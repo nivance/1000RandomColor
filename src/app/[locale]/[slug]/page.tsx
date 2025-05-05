@@ -47,11 +47,7 @@ export default function Page({ params }: { params: { slug: string } }) {
         <Link href={color} className="hover:text-blue-500"><h1>#{color}</h1></Link>
       </nav>
       <ColorShow color={color} />
-      <div>
-        <h2 className="text-2xl font-mono text-gray-700 font-bold text-center mt-8 mb-4">Random Color Variations Derived from #{color}</h2>
-      </div>
-      <SpecificColor color={color} />
-      <div>
+      <div className="mt-8">
         <h2 className="text-2xl font-mono text-gray-700 font-bold border-b-2 text-start mb-4">#{color} Hex Color Code</h2>
         <p className="font-mono text-lg text-gray-700 dark:text-gray-300 mb-4">
           A Hex Color Code is a six-digit combination of numbers and letters used in web design and graphic design to represent colors. It begins with a hash symbol (#) followed by six characters.
@@ -146,6 +142,10 @@ export default function Page({ params }: { params: { slug: string } }) {
           </div>
         </div>
       </div>
+      <div>
+        <h2 className="text-2xl font-mono text-gray-700 font-bold text-center mt-8 mb-4">Random Color Variations Derived from #{color}</h2>
+      </div>
+      <SpecificColor color={color} />
     </div>
   );
 }
