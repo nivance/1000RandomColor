@@ -109,7 +109,7 @@ export default function Page({ params }: { params: { slug: string } }) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
           <div className="flex flex-col">
             <h3 className="text-lg font-mono text-gray-700 font-bold border-b-2 text-center mb-4">Complementary colors</h3>
-            <p className="font-mono mb-2">Complementary colors are pairs of colors that sit directly opposite each other on the color wheel. When placed side by side, they create strong visual contrast and make each other appear more vibrant. Common complementary pairs include red and green, blue and orange, and yellow and purple.</p>
+            <p className="font-mono mb-2 text-sm">Complementary colors are pairs of colors that sit directly opposite each other on the color wheel. When placed side by side, they create strong visual contrast and make each other appear more vibrant. Common complementary pairs include red and green, blue and orange, and yellow and purple.</p>
             <div className="grid grid-cols-2 gap-1">
               <div className="flex flex-col">
                 <Link href={color.replace(/^#/, '')}>
@@ -139,7 +139,7 @@ export default function Page({ params }: { params: { slug: string } }) {
           </div>
           <div className="flex flex-col">
             <h3 className="text-lg font-mono text-gray-700 font-bold border-b-2 text-center mb-4">Triadic colors</h3>
-            <p className="font-mono mb-2">Triadic colors are a group of three colors that are evenly spaced around the color wheel, forming a perfect triangle. This color scheme offers strong visual contrast while maintaining harmony and balance. Common triadic combinations include red, yellow, and blue or purple, green, and orange.</p>
+            <p className="font-mono mb-2 text-sm">Triadic colors are a group of three colors that are evenly spaced around the color wheel, forming a perfect triangle. This color scheme offers strong visual contrast while maintaining harmony and balance. Common triadic combinations include red, yellow, and blue or purple, green, and orange.</p>
             <div className="grid grid-cols-3 gap-1">
               {triadicColors.map((triadicColor, index) => (
                 <div key={index} className="flex flex-col">
@@ -160,7 +160,7 @@ export default function Page({ params }: { params: { slug: string } }) {
           </div>
           <div className="flex flex-col">
             <h3 className="text-lg font-mono text-gray-700 font-bold border-b-2 text-center mb-4">Tetradic Colors</h3>
-            <p className="font-mono mb-2">Tetradic colors, also known as double-complementary colors, are a group of four colors arranged into two complementary pairs on the color wheel. This color scheme forms a rectangle or square shape on the wheel, offering a rich and balanced palette with high contrast and variety. </p>
+            <p className="font-mono mb-2 text-sm">Tetradic colors, also known as double-complementary colors, are a group of four colors arranged into two complementary pairs on the color wheel. This color scheme forms a rectangle or square shape on the wheel, offering a rich and balanced palette with high contrast and variety. </p>
             <div className="grid grid-cols-4 gap-1">
               {tetradicColors.map((tetradicColor, index) => (
                 <div key={index} className="flex flex-col">
