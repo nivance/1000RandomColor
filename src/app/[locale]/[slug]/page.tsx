@@ -44,7 +44,7 @@ export default function Page({ params }: { params: { slug: string } }) {
       <nav className="flex items-center text-lg font-mono text-gray-500 mt-8 border-b border-gray-200 pb-1">
         <Link href="/" className="hover:text-blue-500">Home</Link>
         <ChevronRight className="" size={16} />
-        <Link href={color} className="hover:text-blue-500">#{color}</Link>
+        <Link href={color} className="hover:text-blue-500"><h1>#{color}</h1></Link>
       </nav>
       <ColorShow color={color} />
       <div>
