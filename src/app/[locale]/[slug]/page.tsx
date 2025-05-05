@@ -5,7 +5,10 @@ import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
-import { hexToRgb, hexToRgbPercentages, hexToHsl, generateShades, generateTints } from '@/lib/utils';
+import {
+  hexToRgb, hexToRgbPercentages, hexToHsl, generateShades, generateTints,
+  getComplementaryColor
+} from '@/lib/utils';
 
 export const runtime = "edge";
 
@@ -38,6 +41,7 @@ export default function Page({ params }: { params: { slug: string } }) {
   const rgb = hexToRgb(color);
   const shades = generateShades(color, 12);
   const tints = generateTints(color, 12);
+  const complementaryColor = getComplementaryColor(color);
 
   return (
     <div className="mx-auto w-[90%] lg:w-[80%]">
@@ -89,13 +93,43 @@ export default function Page({ params }: { params: { slug: string } }) {
                   style={{ backgroundColor: tint }}
                 />
               </Link>
-              <div className="bg-white py-2 text-center">
-                <Link href={tint.replace(/^#/, '')} key={index} >
-                  <p className="font-mono text-xs text-gray-600 hover:text-blue-500 hover:underline">{tint}</p>
-                </Link>
-              </div>
             </div>
           ))}
+        </div>
+      </div>
+      <div className="mt-8">
+        <h2 className="text-2xl font-mono text-gray-700 font-bold border-b-2 text-start mb-4">Color Harmony</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
+          <div className="flex flex-col">
+            <h3 className="text-lg font-mono text-gray-700 font-bold border-b-2 text-start mb-4">Complementary colors</h3>
+            <p className="font-mono mb-2">Complementary colors are pairs of colors that sit directly opposite each other on the color wheel. When placed side by side, they create strong visual contrast and make each other appear more vibrant. Common complementary pairs include red and green, blue and orange, and yellow and purple.</p>
+            <div className="grid grid-cols-2 gap-0">
+              <div className="flex flex-col">
+                <Link href={color.replace(/^#/, '')}>
+                  <div className="h-24 w-full"
+                    style={{ backgroundColor: `#${color}` }}
+                  />
+                </Link>
+                <div className="bg-white py-2 text-center w-full">
+                  <Link href={color.replace(/^#/, '')} >
+                    <p className="font-mono text-base text-gray-600 hover:text-blue-500 hover:underline">#{color}</p>
+                  </Link>
+                </div>
+              </div>
+              <div className="flex flex-col">
+                <Link href={complementaryColor.replace(/^#/, '')}>
+                  <div className="h-24 w-full"
+                    style={{ backgroundColor: `${complementaryColor}` }}
+                  />
+                </Link>
+                <div className="bg-white py-2 text-center w-full">
+                  <Link href={complementaryColor.replace(/^#/, '')} >
+                    <p className="font-mono text-base text-gray-600 hover:text-blue-500 hover:underline">{complementaryColor}</p>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div className="mt-8">
