@@ -211,3 +211,37 @@ function hslToHex(h: number, s: number, l: number): string {
 
   return "#" + toHex(r) + toHex(g) + toHex(b);
 }
+
+export function getTetradicColors(hexColor: string, type = "rectangle") {
+  // 移除 "#" 符号（如果存在）
+  hexColor = hexColor.replace("#", "");
+
+  // 确保颜色代码是 6 位
+  if (hexColor.length !== 6) {
+    throw new Error("Invalid hex color code. Must be a 6-digit value.");
+  }
+
+  // 将 RGB 转换为 HSL
+  const [h, s, l] = chroma(hexColor).hsl();
+
+  let h1, h2, h3;
+
+  // 计算四元组色相
+  if (type === "square") {
+    h1 = (h + 90) % 360;
+    h2 = (h + 180) % 360;
+    h3 = (h + 270) % 360;
+  } else {
+    // 矩形方案
+    h1 = (h + 30) % 360; // 原始颜色的邻近色
+    h2 = (h + 180) % 360; // 互补色
+    h3 = (h2 + 30) % 360; // 互补色的邻近色
+  }
+
+  // 将 HSL 转换为十六进制颜色代码
+  const hex1 = hslToHex(h1, s, l);
+  const hex2 = hslToHex(h2, s, l);
+  const hex3 = hslToHex(h3, s, l);
+
+  return ["#" + hexColor, hex1, hex2, hex3];
+}

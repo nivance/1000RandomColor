@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 import {
   hexToRgb, hexToRgbPercentages, hexToHsl, generateShades, generateTints,
-  getComplementaryColor, getTriadicColors
+  getComplementaryColor, getTriadicColors, getTetradicColors
 } from '@/lib/utils';
 
 export const runtime = "edge";
@@ -43,6 +43,7 @@ export default function Page({ params }: { params: { slug: string } }) {
   const tints = generateTints(color, 12);
   const complementaryColor = getComplementaryColor(color);
   const triadicColors = getTriadicColors(color);
+  const tetradicColors = getTetradicColors(color);
 
   return (
     <div className="mx-auto w-[90%] lg:w-[80%]">
@@ -151,6 +152,27 @@ export default function Page({ params }: { params: { slug: string } }) {
                   <div className="bg-white py-2 text-center">
                     <Link href={triadicColor.replace(/^#/, '')} key={index} >
                       <p className="font-mono text-base text-gray-600 hover:text-blue-500 hover:underline">{triadicColor}</p>
+                    </Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="flex flex-col">
+            <h3 className="text-lg font-mono text-gray-700 font-bold border-b-2 text-center mb-4">Tetradic Colors</h3>
+            <p className="font-mono mb-2">Tetradic colors, also known as double-complementary colors, are a group of four colors arranged into two complementary pairs on the color wheel. This color scheme forms a rectangle or square shape on the wheel, offering a rich and balanced palette with high contrast and variety. </p>
+            <div className="grid grid-cols-4 gap-1">
+              {tetradicColors.map((tetradicColor, index) => (
+                <div key={index} className="flex flex-col">
+                  <Link href={tetradicColor.replace(/^#/, '')} key={index} >
+                    <div
+                      className="h-24 w-full rounded-md"
+                      style={{ backgroundColor: tetradicColor }}
+                    />
+                  </Link>
+                  <div className="bg-white py-2 text-center">
+                    <Link href={tetradicColor.replace(/^#/, '')} key={index} >
+                      <p className="font-mono text-base text-gray-600 hover:text-blue-500 hover:underline">{tetradicColor}</p>
                     </Link>
                   </div>
                 </div>
