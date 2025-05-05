@@ -121,3 +121,35 @@ export function generateTints(hex: string, numberOfTints: number) {
 
   return tints;
 }
+
+/**
+ * 计算互补色
+ */ 
+export function getComplementaryColor(hex: string) {
+  // 移除 "#" 符号（如果存在）
+  hex = hex.replace("#", "");
+
+  // 确保颜色代码是 6 位
+  if (hex.length !== 6) {
+    throw new Error("Invalid hex color code. Must be a 6-digit value.");
+  }
+
+  // 将十六进制颜色代码转换为 RGB
+  const r = parseInt(hex.substring(0, 2), 16);
+  const g = parseInt(hex.substring(2, 4), 16);
+  const b = parseInt(hex.substring(4, 6), 16);
+
+  // 计算互补色
+  const complementaryR = 255 - r;
+  const complementaryG = 255 - g;
+  const complementaryB = 255 - b;
+
+  // 将互补色转换为十六进制
+  const complementaryHex =
+    "#" +
+    complementaryR.toString(16).padStart(2, "0") +
+    complementaryG.toString(16).padStart(2, "0") +
+    complementaryB.toString(16).padStart(2, "0");
+
+  return complementaryHex;
+}
