@@ -76,7 +76,7 @@ export default function Page({ params }: { params: { slug: string } }) {
               </Link>
               <div className="bg-white py-2 text-center">
                 <Link href={shade.replace(/^#/, '')} key={index} >
-                  <p className="font-mono text-xs text-gray-600 hover:text-blue-500 hover:underline">{shade}</p>
+                  <p className="font-mono text-base text-gray-600 hover:text-blue-500 hover:underline">{shade}</p>
                 </Link>
               </div>
             </div>
@@ -94,6 +94,11 @@ export default function Page({ params }: { params: { slug: string } }) {
                   style={{ backgroundColor: tint }}
                 />
               </Link>
+              <div className="bg-white py-2 text-center">
+                <Link href={tint.replace(/^#/, '')} key={index} >
+                  <p className="font-mono text-base text-gray-600 hover:text-blue-500 hover:underline">{tint}</p>
+                </Link>
+              </div>
             </div>
           ))}
         </div>
