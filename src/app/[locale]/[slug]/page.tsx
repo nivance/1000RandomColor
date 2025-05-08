@@ -217,7 +217,7 @@ export default function Page({ params }: { params: { slug: string } }) {
           </div>
           <div className="flex flex-col">
             <h3 className="text-lg font-mono text-gray-700 font-bold text-center mb-4">Black background</h3>
-            <div className="bg-white h-48 rounded-md border-2 border-gray-300 flex items-center justify-center">
+            <div className="bg-black h-48 rounded-md border-2 border-gray-300 flex items-center justify-center">
               <div className="h-36 w-36 rounded-md"
                 style={{ backgroundColor: `#${color}` }}
               />
