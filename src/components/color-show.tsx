@@ -34,6 +34,7 @@ export default function ColorShow({ color }: { color: string }) {
     const hcl = chromaColor.hcl().map((v) => Math.round(v)).join(', ');
     const xyz = hexToXyz(color);
 
+    const [showPreview, setShowPreview] = useState<boolean>(false)
     const [copied, setCopied] = useState<boolean>(false)
 
     const copyToClipboard = (text: string) => {
@@ -57,10 +58,23 @@ export default function ColorShow({ color }: { color: string }) {
         <div className="flex flex-col lg:flex-row lg:items-stretch items-center justify-center text-white mt-4">
             {/* 左侧颜色展示块 */}
             <div
-                className="w-80 h-60 border-4 rounded-md mb-6 lg:mb-0 lg:mr-8 flex-shrink-0"
+                className="w-80 h-60 border-4 rounded-md mb-6 lg:mb-0 lg:mr-8 flex-shrink-0 cursor-pointer"
                 style={{ backgroundColor: `#${color}` }}
+                onClick={() => setShowPreview(true)}
             />
 
+            {/* 预览图片遮罩层 */}
+            {showPreview && (
+                <div
+                    className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
+                    onClick={() => setShowPreview(false)}
+                >
+                    <div
+                        className="w-[800px] h-[600px] rounded-md"
+                        style={{ backgroundColor: `#${color}` }}
+                    />
+                </div>
+            )}
             {/* 右侧信息块 */}
             <div className="bg-gray-100 text-gray-800 border-2 rounded-md shadow-md lg:w-full p-4 flex-grow">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2 gap-x-12 h-full">
