@@ -251,7 +251,7 @@ export default function Page({ params }: { params: { slug: string } }) {
         <h2 className="text-2xl font-mono text-gray-700 font-bold border-b-2 text-start mb-4">Shareable Images & Wallpapers</h2>
         <p className='font-mono text-base text-start text-gray-700'>High-resolution images of the hex color #{color}, perfect for sharing on social or using as a wallpaper.</p>
         <div className="flex justify-center items-center flex-wrap gap-4 mt-4">
-          <Link href={`wallpaper/${color}?height=1080&width=1920`} target='_blank'>
+          <Link href={`wallpaper/${color}?height=1920&width=1080`} target='_blank'>
             <div className="h-48 w-24 rounded-md"
               style={{ backgroundColor: `#${color}` }}
             />
