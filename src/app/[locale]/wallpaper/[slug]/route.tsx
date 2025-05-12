@@ -11,6 +11,13 @@ export async function GET(
     const width = parseInt(searchParams.get('width') || '1920');
     const height = parseInt(searchParams.get('height') || '1080');
 
+    // 设置更积极的缓存策略
+    const cacheHeaders = {
+        'Content-Type': 'image/png',
+        'Cache-Control': 'public, max-age=31536000, immutable, stale-while-revalidate=60',
+        'CDN-Cache-Control': 'public, max-age=31536000',
+    };
+
     try {
         return new ImageResponse(
             (
@@ -26,10 +33,7 @@ export async function GET(
             {
                 width,
                 height,
-                headers: {
-                    'Content-Type': 'image/png',
-                    'Cache-Control': 'public, max-age=31536000, immutable',
-                },
+                headers: cacheHeaders,
             }
         );
     } catch (error) {
