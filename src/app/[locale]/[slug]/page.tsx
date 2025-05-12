@@ -1,5 +1,6 @@
 import SpecificColor from '@/components/specific-color';
 import ColorShow from '@/components/color-show';
+import Wallpaper from '@/components/wallpaper';
 import { config } from "@/lib/config";
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
@@ -247,27 +248,7 @@ export default function Page({ params }: { params: { slug: string } }) {
           </div>
         </div>
       </div>
-      <div className="mt-8">
-        <h2 className="text-2xl font-mono text-gray-700 font-bold border-b-2 text-start mb-4">Shareable Images & Wallpapers</h2>
-        <p className='font-mono text-base text-start text-gray-700'>High-resolution images of the hex color #{color}, perfect for sharing on social or using as a wallpaper.</p>
-        <div className="flex justify-center items-center flex-wrap gap-4 mt-4">
-          <Link href={`wallpaper/${color}?height=1920&width=1080`} target='_blank'>
-            <div className="h-48 w-24 rounded-md"
-              style={{ backgroundColor: `#${color}` }}
-            />
-          </Link>
-          <Link href={`wallpaper/${color}?height=1920&width=1920`} target='_blank'>
-            <div className="h-48 w-48 rounded-md"
-              style={{ backgroundColor: `#${color}` }} 
-            />
-          </Link>
-          <Link href={`wallpaper/${color}?height=1080&width=1920`} target='_blank'>
-            <div className="h-48 w-96 rounded-md"
-              style={{ backgroundColor: `#${color}` }}
-            />
-          </Link>
-        </div>
-      </div>
+      <Wallpaper color={color} />
       <div className="mt-8">
         <h2 className="text-2xl font-mono text-gray-700 font-bold border-b-2 text-start mb-4">CSS Code Examples</h2>
         <div className="mb-8">
