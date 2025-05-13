@@ -50,7 +50,7 @@ export default function Page({ params }: { params: { slug: string } }) {
   return (
     <div className="mx-auto w-[90%] lg:w-[80%]">
       <nav className="flex items-center text-lg font-mono text-gray-500 mt-8 border-b border-gray-200 pb-1">
-        <Link href="/" className="hover:text-blue-500">Home</Link>
+        <Link href="/" className="hover:text-blue-500">Home-1</Link>
         <ChevronRight className="" size={16} />
         <Link href={color} className="hover:text-blue-500"><h1>#{color}</h1></Link>
       </nav>
@@ -66,7 +66,7 @@ export default function Page({ params }: { params: { slug: string } }) {
           In the HSL color space #{color} has a hue of {hsl[0]}°(degrees), {hsl[1]} saturation and {hsl[2]} lightness.
         </p>
       </div>
-      <div className="mt-8">
+      <div className="mt-8" id="shadesTints">
         <h2 className="text-2xl font-mono text-gray-700 font-bold border-b-2 text-start mb-4">Shades of #{color}</h2>
         <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 gap-0">
           {shades.map((shade, index) => (
@@ -106,7 +106,7 @@ export default function Page({ params }: { params: { slug: string } }) {
           ))}
         </div>
       </div>
-      <div className="mt-8">
+      <div className="mt-8" id="colorHarmony">
         <h2 className="text-2xl font-mono text-gray-700 font-bold border-b-2 text-start mb-4">Color Harmony</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
           <div className="flex flex-col">
@@ -204,7 +204,7 @@ export default function Page({ params }: { params: { slug: string } }) {
           </div>
         </div>
       </div>
-      <div className="mt-8">
+      <div className="mt-8" id="preview">
         <h2 className="text-2xl font-mono text-gray-700 font-bold border-b-2 text-start mb-4">Preview</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
           <div className="flex flex-col">
@@ -249,7 +249,7 @@ export default function Page({ params }: { params: { slug: string } }) {
         </div>
       </div>
       <Wallpaper color={color} />
-      <div className="mt-8">
+      <div className="mt-8" id="cssCodes">
         <h2 className="text-2xl font-mono text-gray-700 font-bold border-b-2 text-start mb-4">CSS Code Examples</h2>
         <div className="mb-8">
           <h3 className="text-xl font-mono text-gray-500 font-bold text-start mb-2">Text with hex color #{color}</h3>
@@ -293,7 +293,7 @@ export default function Page({ params }: { params: { slug: string } }) {
           </div>
         </div>
       </div>
-      <div>
+      <div id="randomColors">
         <h2 className="text-2xl font-mono text-gray-700 font-bold text-center mt-8 mb-4">Random Color Variations Derived from #{color}</h2>
       </div>
       <SpecificColor color={color} />
