@@ -50,12 +50,39 @@ export default function Page({ params }: { params: { slug: string } }) {
   return (
     <div className="mx-auto w-[90%] lg:w-[80%]">
       <nav className="flex items-center text-lg font-mono text-gray-500 mt-8 border-b border-gray-200 pb-1">
-        <Link href="/" className="hover:text-blue-500">Home-1</Link>
+        <Link href="/" className="hover:text-blue-500">Home</Link>
         <ChevronRight className="" size={16} />
         <Link href={color} className="hover:text-blue-500"><h1>#{color}</h1></Link>
       </nav>
       <ColorShow color={color} />
-      <div className="mt-8">
+      <div className="mt-8 flex">
+        <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-x-6 gap-y-1">
+          <Link href="#colorInfo">
+            <p className="font-mono p-1 text-base text-blue-500 hover:bg-gray-200 hover:rounded-md inline-block whitespace-nowrap">#{color}</p>
+          </Link>
+          <Link href="#shadesTints">
+            <p className="font-mono p-1 text-base text-blue-500 hover:bg-gray-200 hover:rounded-md inline-block whitespace-nowrap">Shades Tints</p>
+          </Link>
+          <Link href="#colorHarmony">
+            <p className="font-mono p-1 text-base text-blue-500 hover:bg-gray-200 hover:rounded-md inline-block whitespace-nowrap">Color Harmony</p>
+          </Link>
+          <Link href="#preview">
+            <p className="font-mono p-1 text-base text-blue-500 hover:bg-gray-200 hover:rounded-md inline-block whitespace-nowrap">Color Preview</p>
+          </Link>
+          <Link href="#wallpapers">
+            <p className="font-mono p-1 text-base text-blue-500 hover:bg-gray-200 hover:rounded-md inline-block whitespace-nowrap">Color Wallpapers</p>
+          </Link>
+          <Link href="#cssCodes">
+            <p className="font-mono p-1 text-base text-blue-500 hover:bg-gray-200 hover:rounded-md inline-block whitespace-nowrap">CSS Codes</p>
+          </Link>
+          <Link href="#randomColors">
+            <p className="font-mono p-1 text-base text-blue-500 hover:bg-gray-200 hover:rounded-md inline-block whitespace-nowrap">
+              Random Colors
+            </p>
+          </Link>
+        </div>
+      </div>
+      <div className="mt-8" id="colorInfo">
         <h2 className="text-2xl font-mono text-gray-700 font-bold border-b-2 text-start mb-4">#{color} Hex Color Code</h2>
         <p className="font-mono text-lg text-gray-700 dark:text-gray-300 mb-4">
           A Hex Color Code is a six-digit combination of numbers and letters used in web design and graphic design to represent colors. It begins with a hash symbol (#) followed by six characters.
